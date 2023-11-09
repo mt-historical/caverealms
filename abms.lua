@@ -57,6 +57,7 @@ minetest.register_abm({
 		oldparam = minetest.get_node(pos).param2
 		minetest.set_node(pos, {name="default:chest", param2=oldparam})
 		minetest.after(1.0, function()
+			if minetest.get_node(pos).name ~= "default:chest" then return end
 			local inv = minetest.get_inventory({type="node", pos=pos})
 			local item_num = math.random(MIN_ITEMS, MAX_ITEMS)
 			for i = 1, item_num do

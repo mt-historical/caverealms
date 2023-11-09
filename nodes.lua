@@ -525,11 +525,10 @@ minetest.register_node("caverealms:s_chest", {
 	tiles = {"default_chest_front.png"},
 	paramtype2 = "facedir",
 	groups = {choppy=3,oddly_breakable_by_hand=2,cavechest=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
+	on_place = function(_, placer)
+		minetest.chat_send_player(placer:get_player_name(), "Hacker!")
 	end,
+	can_dig = function() return false end,
 })
 
 --hacky schematic placers
@@ -538,22 +537,20 @@ minetest.register_node("caverealms:s_fountain", {
 	description = "A Hack like you should know what this does...",
 	tiles = {"caverealms_stone_eyes.png"},
 	groups = {crumbly=3, schema=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
+	on_place = function(_, placer)
+		minetest.chat_send_player(placer:get_player_name(), "Hacker!")
 	end,
+	can_dig = function() return false end,
 })
 
 minetest.register_node("caverealms:s_fortress", {
 	description = "A Hack like you should know what this does...",
 	tiles = {"caverealms_stone_eyes.png"},
 	groups = {crumbly=3, schema=1, not_in_creative_inventory=1},
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if pos.y > DM_TOP then
-			minetest.remove_node(pos)
-		end
+	on_place = function(_, placer)
+		minetest.chat_send_player(placer:get_player_name(), "Hacker!")
 	end,
+	can_dig = function() return false end,
 })
 
 --dungeon master statue (nodebox)
